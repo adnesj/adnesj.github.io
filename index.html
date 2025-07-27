@@ -10,10 +10,27 @@
         /* Optional: Custom font for a nicer look */
         body {
             font-family: "Inter", sans-serif;
+            /* Background animation styles */
+            background: linear-gradient(270deg, #e0f2f7, #e8eaf6, #ede7f6, #fce4ec); /* Subtle gradient colors */
+            background-size: 400% 400%; /* Make the gradient larger than the viewport */
+            animation: gradientShift 15s ease infinite; /* Apply animation */
+        }
+
+        /* Keyframes for the gradient animation */
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-blue-100 to-purple-200 min-h-screen flex items-center justify-center p-4">
+<body class="min-h-screen flex items-center justify-center p-4">
     <div class="bg-white p-8 rounded-xl shadow-2xl text-center max-w-md w-full">
         <h1 class="text-5xl font-extrabold text-blue-600 mb-6 leading-tight">
             Welcome to My GitHub Page
