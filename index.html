@@ -3,50 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Awesome GitHub Page</title>
+    <title>Ådne Skjæveland Jøssing</title>
+    <!-- Google Fonts - Ubuntu -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+     
     <!-- Tailwind CSS CDN for easy styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Optional: Custom font for a nicer look */
         body {
-            font-family: "Inter", sans-serif;
-            /* Background animation styles */
-            background: linear-gradient(270deg, #e0f2f7, #e8eaf6, #ede7f6, #fce4ec); /* Subtle gradient colors */
+            font-family: "Ubuntu", sans-serif;
+            /* Background animation styles - Full Color Wheel (Pastel/Cool) */
+            background: linear-gradient(270deg, #b3e0ff, #c9ffb3, #ffffb3, #ffd2b3, #e0b3ff, #b3e0ff);
             background-size: 400% 400%; /* Make the gradient larger than the viewport */
-            animation: gradientShift 15s ease infinite; /* Apply animation */
+            animation: gradientShift 90s ease infinite; /* Super slow animation */
         }
 
-        /* Keyframes for the gradient animation */
+        /* Keyframes for the body background gradient animation */
         @keyframes gradientShift {
             0% {
                 background-position: 0% 50%;
             }
-            50% {
-                background-position: 100% 50%;
-            }
             100% {
+                background-position: 100% 50%; /* Animate across the full gradient */
+            }
+        }
+
+        /* Custom class for animated button background and text gradient */
+        .animated-gradient-strong {
+            /* Deeper, more vibrant gradient colors - Full Color Wheel (Professional) */
+            background: linear-gradient(270deg, #4285F4, #34A853, #FBBC05, #EA4335, #9C27B0, #4285F4);
+            background-size: 400% 400%;
+            animation: buttonGradientShift 90s ease infinite; /* Same super slow speed as body */
+        }
+
+        /* Keyframes for the button/text background gradient animation */
+        @keyframes buttonGradientShift {
+            0% {
                 background-position: 0% 50%;
             }
+            100% {
+                background-position: 100% 50%; /* Animate across the full gradient */
+            }
+        }
+
+        /* Custom class for animated text gradient */
+        .animated-text-gradient {
+            -webkit-background-clip: text; /* Clip background to text shape */
+            background-clip: text;
+            -webkit-text-fill-color: transparent; /* Make text transparent to show background */
+            /* Ensure font weight is bold enough for the effect to be visible */
+            font-weight: bold;
         }
     </style>
 </head>
 <body class="min-h-screen flex items-center justify-center p-4">
-    <div class="bg-white p-8 rounded-xl shadow-2xl text-center max-w-md w-full">
-        <h1 class="text-5xl font-extrabold text-blue-600 mb-6 leading-tight">
+    <div class="bg-white p-8 rounded-xl shadow-2xl text-center max-w-md w-full transform transition duration-300 ease-in-out hover:shadow-xl hover:scale-[1.01]">
+        <h1 class="text-5xl font-extrabold mb-6 leading-tight animated-text-gradient animated-gradient-strong">
             Welcome to My GitHub Page
         </h1>
-        <p class="text-lg text-gray-600 mb-8">
-            This is a simple website hosted from a GitHub repository.
+        <p class="text-lg text-gray-800 mb-4">
+            Hi, I’m <span class="font-bold animated-text-gradient animated-gradient-strong">Ådne Skjæveland Jøssing</span>.
         </p>
-        <p class="text-gray-700 mb-6">
-            Maybe I’ll put something interesting here when I have time.
+        <p class="text-gray-700 mb-8">
+            This is my simple personal website hosted on GitHub.
+            <br>
+            Maybe I’ll add something interesting here later.
         </p>
         <!-- Container for the buttons to make them equal length and span the width -->
         <div class="flex flex-col sm:flex-row justify-center gap-4 w-full">
-            <a href="https://github.com/adnesj/adnesj.github.io" class="flex-1 text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transform transition duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300" target="_blank">
+            <a href="https://github.com/adnesj/adnesj.github.io" class="flex-1 text-center text-white font-bold py-3 px-8 rounded-xl shadow-lg transform transition duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300 animated-gradient-strong" target="_blank">
                 View Repo
             </a>
-            <a href="https://github.com/adnesj" class="flex-1 text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transform transition duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300" target="_blank">
+            <a href="https://github.com/adnesj" class="flex-1 text-center text-white font-bold py-3 px-8 rounded-xl shadow-lg transform transition duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300 animated-gradient-strong" target="_blank">
                 View Profile
             </a>
         </div>
