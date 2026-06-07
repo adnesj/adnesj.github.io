@@ -1,2 +1,1 @@
-# CNAME?
-634105.xyz
+# README.md
