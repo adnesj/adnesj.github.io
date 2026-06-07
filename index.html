@@ -26,43 +26,7 @@
   position: fixed;
   inset: 0;
   z-index: 0;
-  background: #e8e8e8;
-}
-
-.bg-canvas::before,
-.bg-canvas::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-}
-
-.bg-canvas::before {
-  width: 80vw; height: 80vw;
-  background: radial-gradient(circle, #ffffff, transparent 70%);
-  top: -20vw; left: -10vw;
-  animation: floatA 6s ease-in-out infinite alternate;
-}
-
-.bg-canvas::after {
-  width: 70vw; height: 70vw;
-  background: radial-gradient(circle, #c8c8c8, transparent 70%);
-  bottom: -15vw; right: -10vw;
-  animation: floatB 8s ease-in-out infinite alternate;
-}
-
-@keyframes floatA {
-  0%   { transform: translate(0, 0); }
-  33%  { transform: translate(30vw, 20vh); }
-  66%  { transform: translate(10vw, 50vh); }
-  100% { transform: translate(40vw, 10vh); }
-}
-
-@keyframes floatB {
-  0%   { transform: translate(0, 0); }
-  33%  { transform: translate(-25vw, -20vh); }
-  66%  { transform: translate(-10vw, -45vh); }
-  100% { transform: translate(-35vw, -15vh); }
+  background: radial-gradient(ellipse at 28% 20%, #ffffff 0%, #9b9b9b 100%);
 }
 
     /* ── Main card ── */
@@ -123,9 +87,9 @@
     }
     .panel.active { display: block; }
 
-    .panel-green { background: linear-gradient(145deg, #1a4a3a 0%, #0f3028 40%, #0a2820 100%); }
-    .panel-blue  { background: linear-gradient(145deg, #1a2e52 0%, #0f1f3d 40%, #0a1830 100%); }
-    .panel-red   { background: linear-gradient(145deg, #4a1a1a 0%, #3d0f0f 40%, #2a0a0a 100%); }
+    .panel-green { background: radial-gradient(ellipse at 17% 0%, #2a6e52 0%, #0f3028 50%, #0a2018 100%); }
+.panel-blue  { background: radial-gradient(ellipse at 50% 0%, #1a3d6e 0%, #0f1f3d 50%, #080f20 100%); }
+.panel-red   { background: radial-gradient(ellipse at 83% 0%, #6e1a1a 0%, #3d0f0f 50%, #200808 100%); }
 
     /* decorative wave overlay */
     .card-wave {
@@ -164,30 +128,7 @@
     .panel-blue  .social-links a:hover { color: #7ab3f0; }
     .panel-red   .social-links a:hover { color: #f07a7a; }
 
-    .bg-blob3 {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.bg-blob3::before {
-  content: '';
-  position: absolute;
-  width: 60vw; height: 60vw;
-  border-radius: 50%;
-  filter: blur(100px);
-  background: radial-gradient(circle, #d4d4d4, transparent 70%);
-  top: 30vh; left: 20vw;
-  animation: floatC 10s ease-in-out infinite alternate;
-}
-
-@keyframes floatC {
-  0%   { transform: translate(0, 0); }
-  50%  { transform: translate(20vw, -20vh); }
-  100% { transform: translate(-10vw, 15vh); }
-}
+    
     
     /* ── Hero section ── */
     .hero {
@@ -425,8 +366,6 @@
 <body>
 
   <div class="bg-canvas"></div>
-  <div class="bg-canvas"></div>
-  <div class="bg-blob3"></div>
 
   <!-- ── Card with integrated tabs ── -->
   <div class="card">
@@ -454,15 +393,15 @@
           <div class="profile-name-block">
             <div class="name-row">
               <span class="name-ortho">Ådne</span>
-              <span class="name-ipa">/²ɔdnɜ/</span>
+              <span class="name-ipa">/ˈɔ̂dnɜ/</span>
             </div>
             <div class="name-row">
               <span class="name-ortho"><span class="name-sc">Skjæveland</span></span>
-              <span class="name-ipa">/²ʂæːʋɜˌlɑɲː/</span>
+              <span class="name-ipa">/ˈʂæ̂ːʋɜˌlɑɲː/</span>
             </div>
             <div class="name-row">
               <span class="name-ortho"><span class="name-sc">Jøssing</span></span>
-              <span class="name-ipa">/²jœsːɪŋ/</span>
+              <span class="name-ipa">/ˈjœ̂sːɪŋ/</span>
             </div>
           </div>
 
@@ -473,10 +412,10 @@
             <a href="mailto:you@example.com" title="Email">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </a>
-            <a href="#" title="Twitter/X">
+            <a href="#" title="Twitter">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a href="#" title="GitHub">
+            <a href="https://github.com/adnesj" title="GitHub">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
             </a>
             <a href="#" title="LinkedIn">
@@ -495,21 +434,12 @@
         <div class="about-col">
           <h2>About Me</h2>
           <p>
-            I am a master's student in Computational Linguistics at Tübingen University.
+            I am a master’s student in Computational Linguistics at Tübingen University.
             My research interests include fieldwork, phonology, and ASR.
             Through my studies, I aim to combine computational approaches with the documentation of underdescribed languages.
           </p>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; justify-items: start; margin-bottom: 44px;">
-    <a href="cv.pdf" class="btn-cv" download style="margin-bottom: 0; white-space: nowrap;">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        View CV as PDF
-    </a>
-    <a href="https://github.com/adnesj/adnesj.github.io" class="btn-cv" target="_blank" style="margin-bottom: 0; white-space: nowrap;">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-        View Site Repository
-    </a>
-</div>
+          
 
           <div class="info-grid">
             <div class="info-section">
@@ -532,9 +462,22 @@
               </ul>
             </div>
           </div>
+          <br>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; justify-items: start; margin-bottom: 44px;">
+    <a href="cv.pdf" class="btn-cv" download style="margin-bottom: 0; white-space: nowrap;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        View CV as PDF
+    </a>
+    <a href="https://github.com/adnesj/adnesj.github.io" class="btn-cv" target="_blank" style="margin-bottom: 0; white-space: nowrap;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        View Site Repository
+    </a>
+</div>
         </div>
       </section>
     </div><!-- /panel-bio -->
+
+    
 
     <!-- ══ OTHER 1 PANEL ══ -->
     <div class="panel panel-blue" id="panel-other1">
