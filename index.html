@@ -60,6 +60,7 @@
       cursor: pointer;
       outline: none;
       transition: background 0.25s, color 0.25s;
+      transition: background 0.2s ease, color 0.2s ease;
       /* no radius — panels handle the outer corners */
     }
 
@@ -69,9 +70,17 @@
     .tab-red         { background: #2e1212; color: rgba(255,255,255,0.35); }
 
     /* active — matches panel top colour exactly */
-    .tab-green.active { background: #1a4a3a; color: #7ecfaa; }
-    .tab-blue.active  { background: #1a2e52; color: #7ab3f0; }
-    .tab-red.active   { background: #4a1a1a; color: #f07a7a; }
+    .tab-green.active { background: radial-gradient(ellipse 125% 150%  at 50% 100%, #2a6e52 0%, #1a4a3a 100%); color: #7ecfaa; }
+    .tab-blue.active  { background: radial-gradient(ellipse 75% 150%  at 50% 100%, #1a3d6e 0%, #1a2e52 100%); color: #7ab3f0; }
+    .tab-red.active   { background: radial-gradient(ellipse 125% 150%  at 50% 100%, #6e1a1a 0%, #4a1a1a 100%); color: #f07a7a; }
+
+    .tab-green        { background: radial-gradient(ellipse 200% 150% at 17% 50%, #1a4a3a 0%, #0d2a1e 100%); color: rgba(255,255,255,0.35); }
+    .tab-blue         { background: radial-gradient(ellipse 200% 150% at 50% 50%, #1a2e52 0%, #0a1828 100%); color: rgba(255,255,255,0.35); }
+    .tab-red          { background: radial-gradient(ellipse 200% 150% at 83% 50%, #4a1a1a 0%, #280a0a 100%); color: rgba(255,255,255,0.35); }
+
+    .tab-green:not(.active):hover { background: radial-gradient(ellipse 200% 150% at 17% 50%, #224f3d 0%, #112e22 100%); color: rgba(255,255,255,0.55); }
+.tab-blue:not(.active):hover  { background: radial-gradient(ellipse 200% 150% at 50% 50%, #1e3460 0%, #0d1e30 100%); color: rgba(255,255,255,0.55); }
+.tab-red:not(.active):hover   { background: radial-gradient(ellipse 200% 150% at 83% 50%, #541e1e 0%, #2e0e0e 100%); color: rgba(255,255,255,0.55); }
 
     /* only the very first tab gets a top-left radius (top-right is card edge) */
     .tabs .tab:first-child { border-radius: 24px 0 0 0; }
@@ -83,9 +92,10 @@
       position: relative;
       z-index: 1;
       padding-bottom: 0px;
-      min-height: 520px;
+      min-height: 510px;
     }
     .panel.active { display: block; }
+
 
     .panel-green { background: radial-gradient(ellipse at 17% 0%, #2a6e52 0%, #0f3028 50%, #0a2018 100%); }
 .panel-blue  { background: radial-gradient(ellipse at 50% 0%, #1a3d6e 0%, #0f1f3d 50%, #080f20 100%); }
@@ -243,6 +253,17 @@
       margin-bottom: 28px;
     }
 
+    .interest-list a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.interest-list a:hover {
+  color: #7ab3f0;
+  text-decoration: underline;
+}
+
     /* ── Buttons ── */
     .btn-row {
       display: flex;
@@ -277,6 +298,13 @@
       grid-template-columns: 1fr 1fr;
       gap: 40px;
     }
+
+    .info-grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
     .info-section h3 {
       font-family: 'Lora', serif;
       font-size: 1.15rem;
@@ -386,8 +414,8 @@
         <!-- Left: profile -->
         <div class="profile-col">
           <div class="avatar-wrap">
-            <!-- Replace with: <img src="photo.jpg" alt="Ådne" style="width:100%;height:100%;object-fit:cover;" /> -->
-            <span class="avatar-placeholder">🐮</span>
+            <img src="profile.jpg" alt="Ådne" style="width:100%;height:100%;object-fit:cover;" />
+            <!-- Replace with: <span class="avatar-placeholder">🐮</span> -->
           </div>
 
           <div class="profile-name-block">
@@ -409,22 +437,19 @@
           <div class="profile-org">Universität Tübingen</div>
 
           <div class="social-links">
-            <a href="mailto:you@example.com" title="Email">
+            <a href="mailto:adne.jossing@student.uni-tuebingen.de" title="Email">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </a>
-            <a href="#" title="Twitter">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
             <a href="https://github.com/adnesj" title="GitHub">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
             </a>
-            <a href="#" title="LinkedIn">
+            <a href="https://www.linkedin.com/in/%C3%A5dne-skj%C3%A6veland-j%C3%B8ssing-bb8b14201/" title="LinkedIn">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
-            <a href="#" title="Google Scholar">
+            <a href="https://scholar.google.com/citations?user=OJ-7YccAAAAJ&hl=no" title="Google Scholar">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
             </a>
-            <a href="#" title="ORCID">
+            <a href="https://orcid.org/0009-0003-0281-4251" title="ORCID">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.925-2.484 3.925-3.722 0-2.016-1.284-3.722-3.884-3.722h-2.338z"/></svg>
             </a>
           </div>
@@ -464,11 +489,11 @@
           </div>
           <br>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; justify-items: start; margin-bottom: 44px;">
-    <a href="cv.pdf" class="btn-cv" download style="margin-bottom: 0; white-space: nowrap;">
+    <a href="cv.pdf" class="btn-cv" style="margin-bottom: 0; white-space: nowrap;">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         View CV as PDF
     </a>
-    <a href="https://github.com/adnesj/adnesj.github.io" class="btn-cv" target="_blank" style="margin-bottom: 0; white-space: nowrap;">
+    <a href="https://github.com/adnesj/adnesj.github.io" class="btn-cv" style="margin-bottom: 0; white-space: nowrap;">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
         View Site Repository
     </a>
@@ -485,7 +510,32 @@
       <section class="hero" style="grid-template-columns: 1fr;">
         <div class="about-col">
           <h2>Papers & Projects</h2>
-          <p>Content for papers and projects goes here.</p>
+          <p>This page contains my BA thesis, published papers, as well as other course projects.</p>
+          <div class="info-grid2">
+            <div class="info-section">
+              <h3>BA Thesis</h3>
+              <ul class="interest-list">
+                <li><a href="ba_thesis.pdf">The Vowel Space of Suansu (2025)</a></li>
+              </ul>
+            </div>
+            <div class="info-section">
+              <h3>Published Papers</h3>
+              <ul class="interest-list">
+                <li><a href="ila_polar.pdf">Multi-label Polarization
+Classification with TwHIN-BERT and SCUT Threshold Optimization (2026)</a></li>
+              </ul>
+            </div>
+            <div class="info-section">
+              <h3>Course Projects</h3>
+              <ul class="interest-list">
+                <li><a href="sempars.pdf">Bootstrapping Norwegian AMR for Parsing and Generation (2025)</a></li>
+                <li><a href="slx.pdf">Verb–Adverb Order in Trøndersk Embedded Clauses:
+An Exploratory Sociolinguistic Study (2026)</a></li>
+                <li><a href="ancom.pdf">Language-Like Efficiency or Efficient Biology?
+Cetacean Vocalizations Reconsidered (2026)</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -496,7 +546,30 @@
       <section class="hero" style="grid-template-columns: 1fr;">
         <div class="about-col">
           <h2>Miscellaneous</h2>
-          <p>Other things I do go here.</p>
+          <p>Other interesting things I do would go here. For now there is not much…</p>
+          <div class="info-grid2">
+            <div class="info-section">
+              <h3>Jobs</h3>
+              <ul class="interest-list">
+                <li>Norwegian Teacher</li>
+                <li>Phonetics & Phonology Tutor</li>
+                <li>Student Assistant for GloBasLex</li>
+              </ul>
+            </div>
+            <div class="info-section">
+              <h3>Hobbies</h3>
+              <ul class="interest-list">
+                <li>Language Learning</li>
+                <li>Programming</li>
+              </ul>
+            </div>
+            <div class="info-section">
+              <h3>Other</h3>
+              <ul class="interest-list">
+                <li>Something</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
     </div>
